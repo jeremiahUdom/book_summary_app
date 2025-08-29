@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 *{
   padding: 0;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 :root{
-  --font-family: "Montserrat", sans-serif;
+  --font-family: "Inter", sans-serif;
   --font-color-dark: #2C3333;
   --font-color-light: #fff;
   --bg-dark: #2C3333;
@@ -268,7 +270,7 @@ header .container{
 .form-page{
   display: flex;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 10px;
 }
 
 .form{
@@ -311,6 +313,10 @@ header .container{
 .summary-text{
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+.summary-page .title{
+  text-align: left;
 }
 
 @media screen and (min-width: 670px) {
