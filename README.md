@@ -1,7 +1,7 @@
 
 # Currency Converter
 
-This is a simple project I built to practice full stack development with HTML, CSS, JavaScript, Node, Express, EJS, APIs, and Database. The application lets users to summarise the books they have read.
+This is a simple project I built to practice full stack development with HTML, CSS, JavaScript, Node, Express, EJS, APIs, and Postgres. The application lets users to summarise the books they have read.
 
 
 ## Tech Stack
