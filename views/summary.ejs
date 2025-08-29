@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title><%= summary.book_title %></title>
+</head>
+<body>
+  <main class="summary-page">
+    <div class="container">
+      <h1 class="title"><%= summary.book_title %></h1>
+      <div>
+        <img src="https://covers.openlibrary.org/b/isbn/<%= summary.book_isbn %>-M.jpg" class="book-cover-large" />
+      </div>
+      <p class="book-author"><span class="bold-subheading">by</span>: <%= summary.book_author %></p>
+      <p class="date-read"><span class="bold-subheading">Date Read:</span> <%= summary.date_read.toLocaleDateString() %></p>
+      <div class="star-ratings">
+        <span class="bold-subheading">Reccommendation:</span> <span> </span>
+        <% for(let i = 1; i <= 5; i++) { %>
+          <% if(i <= summary.rating) { %>
+            <img src="/assets/icons/star-filled.png" class="star-img" />
+          <% } else { %>
+            <img src="/assets/icons/star-gray.png" class="star-img" />
+          <% } %>
+        <% } %>
+        <span><%= summary.rating %>/5</span>
+      </div>
+      
+      <h2 class="section-title">Summary</h2>
+      <p class="summary-text"><%= summary.summary %></p>
+      <div class="actions">
+        <a href="/" class="custom-link">Back</a>
+        <form action="/edit/<%= summary.id %>">
+          <button id="edit">Edit</button>
+        </form>
+        <form action="/delete/<%= summary.id %>" method="post">
+          <button id="delete">Delete</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

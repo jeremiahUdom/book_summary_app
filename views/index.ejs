@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>Book Summary App</title>
+</head>
+<body>
+  <%- include("partials/header.ejs") -%>
+  <main class="home">
+    <h1 class="title">My Book Summaries</h1>
+    <div class="container">
+      <% if (summaries.length !== 0){ %>
+        <% summaries.forEach(summary => { %>
+          <div class="item">
+            <div class="book">
+              <img src="https://covers.openlibrary.org/b/isbn/9780385533225-M.jpg" class="book-cover" />
+              <div class="book-info">
+                <p class="book-title"> <%= summary.book_title %> </p>
+                <p class="book-author">by <%= summary.book_author %></p>
+                <p class="date-read">Date Read: <%= summary.date_read.toLocaleDateString() %></p>
+                <div class="star-ratings">
+                  <% for(let i = 1; i <= 5; i++) { %>
+                    <% if(i <= summary.rating) { %>
+                      <img src="/assets/icons/star-filled.png" class="star-img" />
+                    <% } else { %>
+                      <img src="/assets/icons/star-gray.png" class="star-img" />
+                    <% } %>
+                  <% } %>
+                  <span><%= summary.rating %>/5</span>
+                </div>
+              </div>
+            </div>
+            <p class="note-preview">
+              <%= summary.summary %>
+            </p>
+            <a class="custom-link" href="/summary/<%= summary.id %>">
+              View Summary
+            </a>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="empty-state">
+          <img src="/assets/icons/box.png" alt="No summaries" class="empty-icon" />
+          <h2 class="empty-state-header">No summaries yet</h2>
+          <p class="empty-state-text">Add your first book summary to get started!</p>
+        </div>
+      <% } %>
+    </div>
+  </main>
+
+  <% if (!isLoggedIn){ %>
+    <div class="overlay">
+      <div class="modal">
+        <p class="title"><span class="auth-form-title">Login</span> to see your summaries</p>
+        <form class="auth-form" action="/login" method="post">
+          <div>
+            <input type="text" class="form-field" name="username" id="username" placeholder="enter your username" required>
+            <% if (authErrorMsg) { %>
+              <p class="error-msg"><%= authErrorMsg %></p>
+            <% } %>
+          </div>
+          <button class="custom-btn" id="auth-btn">Log In</button>
+        </form>
+        <p><span class="redirect-txt">Don't</span> have an account? <button class="redirect-btn" data-action="signup">Sign Up</button></p>
+      </div>
+    </div>
+  <% } %>
+  
+  <%- include("partials/footer.ejs"); -%>
+  <script src="/js/app.js"></script>
+</body>
+</html>
