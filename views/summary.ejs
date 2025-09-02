@@ -7,8 +7,8 @@
   <title><%= summary.book_title %></title>
 </head>
 <body>
-  <main class="summary-page">
-    <div class="container">
+  <main class="page">
+    <div class="summary container">
       <div>
         <img src="https://covers.openlibrary.org/b/isbn/<%= summary.book_isbn %>-M.jpg" class="book-cover-large" />
       </div>
@@ -31,9 +31,7 @@
       <p class="summary-text"><%= summary.summary %></p>
       <div class="actions">
         <a href="/" class="custom-link">Back</a>
-        <form action="/edit/<%= summary.id %>">
-          <button id="edit">Edit</button>
-        </form>
+        <a href="/edit/<%= summary.id %>" class="custom-link" id="edit">Edit</a>
         <form action="/delete/<%= summary.id %>" method="post">
           <button id="delete">Delete</button>
         </form>

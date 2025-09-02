@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>Add New Book</title>
+</head>
+<body>
+  <main class="page">
+    <form action="/add" method="post" class="form">
+      <h1 class="title">Add New Book</h1>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" class="form-field" value="" required>
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" class="form-field" value="" required>
+      </div>
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" name="isbn" class="form-field" value="" required>
+      </div>
+      <div class="form-group">
+        <label for="dateread">Date Read</label>
+        <input type="date" id="dateread" name="dateread" class="form-field" "" required>
+      </div>
+      <div class="form-group">
+        <label for="summary">Summary</label>
+        <textarea id="summary" name="summary" rows="5" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating (1-5)</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" class="form-field" value="" required>
+      </div>
+      <button type="submit" class="custom-btn">Submit</button>
+    </form>
+  </main>
+</body>
+</html>

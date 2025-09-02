@@ -9,14 +9,14 @@
 </head>
 <body>
   <%- include("partials/header.ejs") -%>
-  <main class="home">
+  <main class="home page">
     <h1 class="title">My Book Summaries</h1>
     <div class="container">
       <% if (summaries.length !== 0){ %>
         <% summaries.forEach(summary => { %>
           <div class="item">
             <div class="book">
-              <img src="https://covers.openlibrary.org/b/isbn/9780385533225-M.jpg" class="book-cover" />
+              <img src="https://covers.openlibrary.org/b/isbn/<%= summary.book_isbn%>-M.jpg" class="book-cover" />
               <div class="book-info">
                 <p class="book-title"> <%= summary.book_title %> </p>
                 <p class="book-author">by <%= summary.book_author %></p>
@@ -50,24 +50,6 @@
       <% } %>
     </div>
   </main>
-
-  <% if (!isLoggedIn){ %>
-    <div class="overlay">
-      <div class="modal">
-        <p class="title"><span class="auth-form-title">Login</span> to see your summaries</p>
-        <form class="auth-form" action="/login" method="post">
-          <div>
-            <input type="text" class="form-field" name="username" id="username" placeholder="enter your username" required>
-            <% if (authErrorMsg) { %>
-              <p class="error-msg"><%= authErrorMsg %></p>
-            <% } %>
-          </div>
-          <button class="custom-btn" id="auth-btn">Log In</button>
-        </form>
-        <p><span class="redirect-txt">Don't</span> have an account? <button class="redirect-btn" data-action="signup">Sign Up</button></p>
-      </div>
-    </div>
-  <% } %>
   
   <%- include("partials/footer.ejs"); -%>
   <script src="/js/app.js"></script>

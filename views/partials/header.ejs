@@ -1,7 +1,7 @@
 <header>
   <div class="container header-content-wrapper">
     <% if (signedInUser){ %>
-      <p class="user">Hello, <%= signedInUser.username %></p>
+      <p class="user">Hello, <%= signedInUser %></p>
     <% } %>
     <a href="/add" class="add-new-btn">
       <span class="material-symbols-outlined">
