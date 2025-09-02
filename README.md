@@ -69,6 +69,7 @@ Make sure you have the following installed:
   })
 ```
 
+- **Create .env file and add environmental variables as shown in sample.env**
 - **Install dependencies**
 
 ```bash
